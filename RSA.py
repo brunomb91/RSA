@@ -1,7 +1,7 @@
 import random
 
 class RSA:
-
+    """RSA cryptography implementation."""
     def __init__():
         __p = random.choice(self.prime_numbers_until_n())
 	__q = random.choice(self.prime_numbers_until_n())
@@ -57,16 +57,18 @@ class RSA:
 	return b
     
     def decrypt_value(self, phi_n, c):
-        d = 0
-	
+        d = 0	
 	while (d * c) % phi_n != 1:
 	    d += 1
 	
 	return d    
 
     def encrypt(self, msg):
-        
-
+        pre_cod = [(ord(x) + 100) for x in msg]
+        pre_cod = ''.join(pre_cod)
+	
+	
+	
     def decrypt(self, msg):
         
 
