@@ -8,7 +8,8 @@ class RSA:
 	__n = 0
         __chave_encrypt = ()
         __chave_decrypt = ()
-
+        cod = []
+        decod = []
          
     def setup(self):
         __n = __p * __q
@@ -66,9 +67,21 @@ class RSA:
     def encrypt(self, msg):
         pre_cod = [(ord(x) + 100) for x in msg]
         pre_cod = ''.join(pre_cod)
-	
-	
+	l = []
+        
+        inicio = 0
+        fim = inicio + random.randint(2, 4)
+        tam = len(pre_cod) 
+        
+        while fim <= tam:
+            l.append(pre_cod[inicio:fim])
+            inicio = fim
+            fim = inicio + random.randint(2, 4)
+        
+        cod = [(int(i)**__chave_encrypt[1] % __chave_encrypt[0]) for i in l]    
+        cod = '#'.join(cod)
+	return cod
 	
     def decrypt(self, msg):
-        
+         
 
