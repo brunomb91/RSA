@@ -93,7 +93,7 @@ class RSA:
 	
         return d    
 
-    def encrypt_msg(self, msg, chave_publica = ()):
+    def encrypt(self, msg, chave_publica = ()):
         pre_cod = [str(ord(x) + 100) for x in msg]
         pre_cod = ''.join(pre_cod)
         l = []        
@@ -119,18 +119,6 @@ class RSA:
         cod = '#'.join(cod)
         
         return cod
-        
-    def encrypt(self, msg, chave_publica = ()): 
-        cod = self.encrypt_msg(msg, chave_publica)
-         
-        # if self.error_treatment(cod) == False:
-        #     while self.error_treatment(msg) != True:
-        #         cod = self.encrypt_msg(msg)	    
-        
-        # cod = '#'.join(cod)
-	
-        return cod
-        
 
     def error_treatment(self, l):
         if l == []:
@@ -175,7 +163,7 @@ class RSA:
         """
 	4617#2017#1635#1053#32#2541#3675#4422#3526#283
 	""" 
-        msg = 'I LOVE YOU'
+        msg = '1 2 3 testing'
         msg2 = rsa.encrypt(msg)
 
         print(msg2)
