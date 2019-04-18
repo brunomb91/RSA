@@ -83,5 +83,27 @@ class RSA:
 	return cod
 	
     def decrypt(self, msg):
-         
+        msg = msg.split('#')
+	l1 = []
+	l2 = []
+	for i in msg:
+	    l1.append((int(i)**__chave_decrypt[1]) % __chave_decrypt[0])
+	
+	l1 = [str(i) for i in l1]
+	l1 = ''.join(l1)
+	tam = len(l1)
+	inicio = 0
+	fim = inicio + 3
+	
+	while fim <= tam:
+	    l2.append(l1[inicio:fim])
+	    inicio = fim
+	    fim = inicio + 3
+	
+	l2 = [chr(i - 100) for i in l2]
+	l2 = ''.join(l2)
+
+	return l2
+
+
 
